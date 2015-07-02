@@ -1,1 +1,1 @@
-# CategoryTaxonomy
+# Category Taxonomy
