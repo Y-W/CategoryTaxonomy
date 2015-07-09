@@ -38,7 +38,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + radius + "," + radius + ")");
 
-d3.json("https://raw.githubusercontent.com/Y-W/CategoryTaxonomy/master/descHC/vis/hcTree1.json", function(error, root) {
+d3.json("https://raw.githubusercontent.com/Y-W/CategoryTaxonomy/master/descHC/vis/hcTree1_label_flat.json", function(error, root) {
   if (error) throw error;
 
   var nodes = cluster.nodes(root);
