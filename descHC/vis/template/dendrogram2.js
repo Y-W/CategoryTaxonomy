@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
 
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.node {
-  font: 10px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
-
-</style>
-<body>
-<script src="http://mbostock.github.com/d3/d3.v2.js?2.9.1"></script>
-<script>
-
-var width = 960,
-    height = 22000;
+var width = 960;
 
 var cluster = d3.layout.cluster()
     .size([height, width - 160]);
@@ -35,7 +10,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(40,0)");
 
-d3.json("hcTree1_label_flat.json", function(json) {
+d3.json(TREE_JSON, function(json) {
   var nodes = cluster.nodes(json);
 
   var link = svg.selectAll("path.link")
@@ -64,5 +39,3 @@ function elbow(d, i) {
   return "M" + d.source.y + "," + d.source.x
       + "V" + d.target.x + "H" + d.target.y;
 }
-
-</script>

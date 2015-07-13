@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<style>
-
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.node {
-  font: 10px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
-
-</style>
-<body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script>
-
-var width = 960,
-    height = 20000;
+var width = 960;
 
 var cluster = d3.layout.cluster()
     .size([height, width - 160]);
@@ -38,7 +12,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(40,0)");
 
-d3.json("hcTree1_label_flat.json", function(error, root) {
+d3.json(TREE_JSON, function(error, root) {
   if (error) throw error;
 
   var nodes = cluster.nodes(root),
@@ -68,4 +42,3 @@ d3.json("hcTree1_label_flat.json", function(error, root) {
 
 d3.select(self.frameElement).style("height", height + "px");
 
-</script>

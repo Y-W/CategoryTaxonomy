@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Flare Dendrogram</title>
-<style>
-
-.node circle {
-  fill: #fff;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.node {
-  font: 10px sans-serif;
-}
-
-.link {
-  fill: none;
-  stroke: #ccc;
-  stroke-width: 1.5px;
-}
-
-</style>
-<body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-<script>
-
-var radius = 9600 / 2;
+var radius = 8000 / 2;
 
 var cluster = d3.layout.cluster()
     .size([360, radius - 120]);
@@ -38,7 +12,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + radius + "," + radius + ")");
 
-d3.json("hcTree1_label_flat.json", function(error, root) {
+d3.json(TREE_JSON, function(error, root) {
   if (error) throw error;
 
   var nodes = cluster.nodes(root);
@@ -66,6 +40,4 @@ d3.json("hcTree1_label_flat.json", function(error, root) {
 });
 
 d3.select(self.frameElement).style("height", radius * 2 + "px");
-
-</script>
 
